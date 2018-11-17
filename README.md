@@ -10,7 +10,7 @@
 * Command to run the project: EMAIL=gmail-id PASSWORD=email-password npm start
      > Provide the real gmail id and password in the above command
 
-* To test these API's you ca use __Postmam__ or __Restclient__
+* To test these API's you can use __Postmam__ or __Restclient__
      > The above are the chrome extensions.
      > Download and add it to chrome.
            [1]: https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en
