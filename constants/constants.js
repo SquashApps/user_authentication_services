@@ -1,6 +1,6 @@
 module.exports = {
   signup: {
-    fromEmail: process.env.email,
+    fromEmail: process.env.EMAIL,
     subject: 'Signup Verification Email',
     template: 'Hello, <br />'
           + 'You have signed up in the user authentication service. <br />'
