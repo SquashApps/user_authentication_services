@@ -19,20 +19,20 @@
 * All the API routes must be prefixed with '/api/user'
 
 * Signup API:
-    > route: '/'
-    > request type: 'POST'
-    > Request Body: email and password.
-    > This email will be sent to the user only if the correct gmail credentials is passed while starting the APP.
-    > Please enable the toggle under __Allow less secure apps__.
-          [1]: https://myaccount.google.com/security#connectedapps
-    > If you miss the above two steps then the email will not be sent to the signed up user.
+    > route: '/'  
+    > request type: 'POST'  
+    > Request Body: email and password.  
+    > This email will be sent to the user only if the correct gmail credentials is passed while starting the APP.  
+    > Please enable the toggle under __Allow less secure apps__.  
+          [1]: https://myaccount.google.com/security#connectedapps  
+    > If you miss the above two steps then the email will not be sent to the signed up user.  
 
 * Login API:
-    > route: '/'
-    > request type: 'GET'
-    > Request query params: email and password
+    > route: '/'  
+    > request type: 'GET'  
+    > Request query params: email and password  
 
 * Verify email API:
-    > route: '/verify/:token'
-    > request type: 'GET',
-    > Request params: token of the user
+    > route: '/verify/:token'  
+    > request type: 'GET',  
+    > Request params: token of the user  
