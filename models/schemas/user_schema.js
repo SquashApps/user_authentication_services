@@ -12,8 +12,8 @@ const userSchema = new Schema({
   salt: { type: String, required: true },
   hash: { type: String, required: true },
   isVerified: { type: Boolean, default: false },
-  verifyEmailToken: { type: String },
-  verifyEmailTokenExpires: { type: Date },
+  emailToken: { type: String },
+  emailTokenExpires: { type: Date },
 }, {
   timestamps: {
     createdAt: replaceTimeStamp.createdAt,

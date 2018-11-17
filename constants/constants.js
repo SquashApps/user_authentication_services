@@ -41,5 +41,5 @@ module.exports = {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
-  verifyEmailTokenExpires: 'verifyEmailTokenExpires',
+  emailTokenExpires: 'emailTokenExpires',
 };

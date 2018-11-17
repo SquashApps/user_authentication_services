@@ -6,7 +6,7 @@ import crypto from 'crypto';
 import UserModel from '../models/user.model';
 import {
   signup, oneHourInMilliseconds, baseString, httpStatusCode, errorMessage,
-  responseMessage, verifyEmailTokenExpires,
+  responseMessage, emailTokenExpires,
 } from '../constants/constants';
 import { hashSecrets } from '../secrets/secrets';
 import sendEmail from '../services/emailService';
@@ -66,8 +66,8 @@ const generateToken = () => {
 const setTokenToUser = (user, token) => new Promise((resolve, reject) => {
   UserModel.findOneAndUpdate({ _id: user._id },
     {
-      verifyEmailToken: token,
-      verifyEmailTokenExpires: Date.now() + oneHourInMilliseconds,
+      emailToken: token,
+      emailTokenExpires: Date.now() + oneHourInMilliseconds,
     }, { new: true }).exec((error, updatedUser) => {
     // eslint-disable-next-line
     error ? reject({error, message: errorMessage.updateToken }) : resolve(updatedUser); 
@@ -100,8 +100,8 @@ export const createUser = async (req, res) => {
 };
 
 const checkForTokenExpiration = token => new Promise((resolve, reject) => {
-  UserModel.findOne({ verifyEmailToken: token })
-    .where(verifyEmailTokenExpires)
+  UserModel.findOne({ emailToken: token })
+    .where(emailTokenExpires)
     .gt(Date.now())
     .exec((error, user) => {
       // eslint-disable-next-line
@@ -111,7 +111,7 @@ const checkForTokenExpiration = token => new Promise((resolve, reject) => {
 
 const updateVerifyStatus = user => new Promise((resolve, reject) => {
   UserModel.findOneAndUpdate({ _id: user._id },
-    { isVerified: true, verifyEmailToken: '', verifyEmailTokenExpires: '' })
+    { isVerified: true, emailToken: '', emailTokenExpires: '' })
     .exec((error, updatedUser) => {
       // eslint-disable-next-line
       error ? reject({error, message: errorMessage.updateStatus }) : resolve(updatedUser);
